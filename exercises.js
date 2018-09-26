@@ -20,8 +20,21 @@ function destroyer(arr) {
     return arr;
   }
 
-  var newArr = [1, 4, 5]
-
 destroyer(newArr)
 
-// End of Function
+//-------------------------//
+
+
+// Using the call method 
+
+var nameObj = {
+    name: 'hello'
+}
+
+var callName = function(obj){
+    console.log(obj.name)
+}
+
+callName.call(nameObj, nameObj)
+
+//-------------------------//
