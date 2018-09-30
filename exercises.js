@@ -137,12 +137,16 @@ function sumAll(arr) {
     //OUTPUT:  Expect a string returned in spinal case. No spaces or underscores: (this-is-a-test)
 
     function spinalCase(str) {
+
         return str
-        .replace(/([A-Z])/g, ` $1`)
-        .replace(/([\s])/g, ``)
-        .toLowerCase().split(" ").join('-')
+        .replace(/([a-z])([A-Z])/g, `$1 $2`)
+        //Looking for spaces (\s) and underscores (|_) to replace with a dash. 
+        .replace(/([\s+|_])/g, `-`)
+        .toLowerCase()
       }
     
+      //Test Cases:
       spinalCase("This Is Spinal Tap")
       spinalCase("thisIsSpinalTap")
+      spinalCase("The_Andy_Griffith_Show")
       
