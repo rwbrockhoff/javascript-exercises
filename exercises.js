@@ -130,3 +130,19 @@ function sumAll(arr) {
     sumAll([5,60])
 
     //-------------------------//
+
+    //Change text input to be spinal case. 
+
+    //INPUT: String only. Could contain spaces, underscores, and a variety of upper/lowercase letters. 
+    //OUTPUT:  Expect a string returned in spinal case. No spaces or underscores: (this-is-a-test)
+
+    function spinalCase(str) {
+        return str
+        .replace(/([A-Z])/g, ` $1`)
+        .replace(/([\s])/g, ``)
+        .toLowerCase().split(" ").join('-')
+      }
+    
+      spinalCase("This Is Spinal Tap")
+      spinalCase("thisIsSpinalTap")
+      
