@@ -1,7 +1,6 @@
 // A variety of javascript exercises to practice and demonstrate javascript knowledge. These problems came from whiteboard problems, freeCodeCamp, or other online resources.
 
 
-
 // Destroyer Function
 
 function destroyer(arr) {
@@ -150,6 +149,8 @@ function sumAll(arr) {
       spinalCase("thisIsSpinalTap")
       spinalCase("The_Andy_Griffith_Show")
 
+ //-------------------------//
+
 
 //Find Longest Word
 
@@ -184,5 +185,39 @@ function findLongestWordLength(str) {
 
   findLongestWordLength("Worrysome.. Sentence is here to test.")
   //Should return 9. Ignoring consecutive periods. 
+
+ //-------------------------//
+
+ //Replacer Function: Replace 2nd arguement with 3rd arguement in the string (first arguement). If 2nd arguement is capital, make sure to capitalize 3rd arguement, too. 
+
+ //INPUT: String with spaces. NO dashes or underscores (for all three arguements) Example: "The dog was nice", "dog", "cat"
+
+ //OUTPUT: String with correctly replace and capitalized/not-capitalized word passed in as 3rd arguement.
+ //Example: "The cat was nice" 
+
+  function myReplace(str, before, after) {
+    //Assign first char in before to firstChar
+    //create capitalized instance of after variable
+
+    var firstChar = before.charAt(0)
+    var capitalAfter = after.charAt(0).toUpperCase() + after.slice(1)
+    
+    //Return replaced string ternary based on whether or not the firstChar in before variable is capital or not. 
+    //If it is capitalized, we need to replace before with the capitalized version of After. 
+    //If not, we can just replace before directly with after
+
+    return firstChar === firstChar.toLowerCase() ? 
+    str.replace(before, after) : str.replace(before, capitalAfter)
+
+}
+  
+//Test Cases(provided):
+
+  myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped")
+
+  //Accounting for a capitalized 2nd arguement, and lowercase 3rd arguement
+  myReplace("He is Sleeping on the couch", "Sleeping", "sitting")
+  //Should return "He is Sitting on the couch"
+
 
       
