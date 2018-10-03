@@ -268,3 +268,45 @@ function findLongestWordLength(str) {
   }
 
    //-------------------------//
+
+   //Find the missing letter
+   //Given a string, find the missing letter from the alphabet
+
+   //INPUT: String without spaces or special characters. Already arranged in alphabetical order. 
+   //OUTPUT: Missing letter, or if no missing letter, undefined
+
+   function fearNotLetter(str) {
+    //Create array from string arguement
+    //Create array for alphabet
+
+    var stringArray = str.split('')
+    var alphabet = "abcdefghijklmnopqrstuvwxyz".split("")
+    
+    //find and return index in alphabet where the stringArray starts
+    
+    var startIndex = alphabet.findIndex(((e => {
+        return e === str.charAt(0)
+    })))
+
+    //iterate through the stringArray comparing its value at given index compared to alphabet at the startIndex
+    //increment startIndex per iteration (if more than one)
+    for(let i=0; i < stringArray.length; i++){
+        if(stringArray[i] !== alphabet[startIndex]){
+            return alphabet[startIndex]
+        }
+        startIndex++
+    }
+  }
+  
+  //Test Cases: 
+
+  fearNotLetter("abce")
+  //Should return 'd'
+
+  fearNotLetter("stvwx")
+  //Should return 'u'
+
+  fearNotLetter("fghij")
+  //Should return undefined since no condition is met and nothing is returned
+
+  
