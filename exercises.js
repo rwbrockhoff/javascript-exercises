@@ -149,4 +149,19 @@ function sumAll(arr) {
       spinalCase("This Is Spinal Tap")
       spinalCase("thisIsSpinalTap")
       spinalCase("The_Andy_Griffith_Show")
+
+
+      
+      //PigLatin Function
+
+      function translatePigLatin(str) {
+        var stringArr = str.split('')
+        for(let i = 0; i < stringArr.length; i++){
+          
+            
+        }
+    
+        return str
+       
+      }
       
