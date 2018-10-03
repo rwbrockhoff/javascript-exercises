@@ -309,4 +309,36 @@ function findLongestWordLength(str) {
   fearNotLetter("fghij")
   //Should return undefined since no condition is met and nothing is returned
 
-  
+  //-------------------------//
+
+  //uniteUnique function
+  //given an unknown number of arguments combine them into an array in the same order as provided [arg1, arg2, arg3] without any duplicates. 
+
+  //INPUT: Unknown number of argumnets, but all arguments will be arrays of integers. No string values. No special cases to account for. 
+  //OUTPUT: Single array with all unique integer values in order of arguments passed into the function.
+
+  function uniteUnique(arr) {
+      //Determine number of arguments
+      //create two empty Arrays, one to add all argument integer values, and one to push unique values to return.
+    var args = arguments.length
+    var concatArray = []
+    var finalArray = []
+    //iterate through arguments and concat them together
+    for(let i =0; i < args; i++){
+        concatArray = concatArray.concat(arguments[i])
+    }
+    //filter unique values and push them into finalArray
+    concatArray.filter((e => {
+        finalArray.indexOf(e) > -1 ? '' : finalArray.push(e)
+    }))
+
+    return finalArray
+  }
+
+  //Test Cases(provied):
+
+  uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1])
+  //Should return: [1, 3, 2, 5, 4]
+
+  uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8])
+  //Should return:  [1, 2, 3, 5, 4, 6, 7, 8]
