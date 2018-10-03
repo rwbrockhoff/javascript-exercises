@@ -151,17 +151,38 @@ function sumAll(arr) {
       spinalCase("The_Andy_Griffith_Show")
 
 
-      
-      //PigLatin Function
+//Find Longest Word
 
-      function translatePigLatin(str) {
-        var stringArr = str.split('')
-        for(let i = 0; i < stringArr.length; i++){
-          
-            
+//INPUT: String with words sepearated by spaces. No underscores or dashes. Will always be string. Please do not count periods as part of a word's length. Example: "Find longest word here."
+
+//OUTPUT: Integer with the length of the longest word, without period character. Example: 32
+
+function findLongestWordLength(str) {
+    //Use a regular expression to replace/remove periods. 
+    //Split words in string into an array. 
+    //Set variable for keeping track of highest word length.
+
+    var stringArray = str.replace(/\./g, '').split(' ')
+    var greatestLength = 0
+
+    //Iterate through array, assinging length to variable if greater than previously stored (or 0) value. 
+
+    stringArray.forEach(( e => {
+        if(e.length > greatestLength){
+            greatestLength = e.length
         }
-    
-        return str
-       
-      }
+    }))
+
+    return greatestLength
+
+}
+  
+    //Test Cases:
+
+  findLongestWordLength("The quick brown fox jumped over the lazy dogwatcher.")
+  //Should return 10.
+
+  findLongestWordLength("Worrysome.. Sentence is here to test.")
+  //Should return 9. Ignoring consecutive periods. 
+
       
