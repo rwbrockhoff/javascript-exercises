@@ -219,5 +219,52 @@ function findLongestWordLength(str) {
   myReplace("He is Sleeping on the couch", "Sleeping", "sitting")
   //Should return "He is Sitting on the couch"
 
+ //-------------------------//
 
-      
+
+  //DNA Sequence
+
+  //Return array of arrays holding the DNA sequence pairs when given half of the pair. So if given "C" return array with ["C", "G"]. 
+
+  //INPUT: String without spaces or extra characters. Might be lowercase. Might be uppercase. Example: "AtG"
+  //OUTPUT: Array of arrays holding each pair. Example: [["A", "T"], ["C", "G"]]
+
+  function pairElement(str) {
+    //Create array of characters
+    //Create empty array to push desired output
+    var stringArray = str.split('')
+    var finalArray = []
+
+    //Iterate through Array
+    //Use Switch/Case to account for 4 character conditions
+    
+    stringArray.forEach((e => {
+        //Convert to uppercase to account for accidental lowercase entries
+        switch (e.toUpperCase()){
+            case 'C' :
+            finalArray.push(["C", "G"])
+            break;
+
+            case 'G' : 
+            finalArray.push(["G", "C"])
+            break;
+
+            case 'A' : 
+            finalArray.push(["A", "T"])
+            break;
+
+            case 'T' :
+            finalArray.push(["T", "A"])
+            break;
+            
+            //Default case for invalid characters
+            default :
+            console.log('Invalid entry given. Try again with any 4 characters: A, T, C, G')
+        }
+
+    }))
+
+    return finalArray
+  }
+
+   //-------------------------//
