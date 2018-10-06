@@ -342,3 +342,44 @@ function findLongestWordLength(str) {
 
   uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8])
   //Should return:  [1, 2, 3, 5, 4, 6, 7, 8]
+
+
+
+  //Sum Fibonacci Sequence 
+
+  function sumFibs(num) {
+    //given positive integer.
+    //use reduce method to get next # in sequence
+    
+    var fibArray = [1]
+    var currentIndex = 1
+    console.log(currentIndex, num)
+    
+    var fibArray = [1]
+    var nextValue = 1
+    var sumValue = 1
+
+    while(sumValue < num){
+        
+        if(sumValue = 1){
+            fibArray.push(1)
+            console.log(1)
+        }
+        if(sumValue > 1) {
+            fibArray.push(nextValue)
+            nextValue = fibArray[fibArray.length-1] + fibArray[fibArray.length-2]
+            console.log(2)
+
+        }
+        sumValue += nextValue
+    }
+
+ 
+    
+   
+    return num
+  }
+  
+  console.log(
+  sumFibs(10)
+  )
