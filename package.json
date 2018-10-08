@@ -18,6 +18,7 @@
   "homepage": "https://github.com/rwbrockhoff/javascript-exercises#readme",
   "dependencies": {
     "babel-jest": "^23.6.0",
-    "jest": "^23.6.0"
+    "jest": "^23.6.0",
+    "lodash": "^4.17.11"
   }
 }

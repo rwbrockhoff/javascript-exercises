@@ -402,4 +402,9 @@ function findLongestWordLength(str) {
   //Should return 135721
 
 
-  module.exports = destroyer
+  module.exports = {
+      destroyer,
+      sortOut,
+      diffArray,
+      sumAll
+  }
