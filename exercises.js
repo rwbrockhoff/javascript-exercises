@@ -466,6 +466,7 @@ function palindrome(str) {
       sortOut,
       diffArray,
       sumAll,
-      spinalCase
+      spinalCase,
+      findLongestWordLength
   }
   //-------------------------//

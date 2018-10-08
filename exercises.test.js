@@ -1,5 +1,5 @@
 
-const {destroyer, sortOut, diffArray, sumAll, spinalCase} = require('./exercises')
+const {destroyer, sortOut, diffArray, sumAll, spinalCase, findLongestWordLength} = require('./exercises')
 
 describe('Destroyer Function', () => {
 
@@ -78,7 +78,7 @@ describe('sumAll Function', () => {
 
 describe('spinalCase Function', () => {
     var resolution = 'this-is-spinal-tap'
-    
+
     it('Should be defined', () => {
         expect(spinalCase).toBeDefined()
     })
@@ -97,5 +97,31 @@ describe('spinalCase Function', () => {
 
     it('Shoudl return spinal case when given underscores', () => {
         expect( spinalCase('This_Is_Spinal_Tap')).toBe(resolution)
+    })
+})
+
+describe('findLongestWordLength Function', () => {
+    it('Should be defined', () => {
+        expect(findLongestWordLength).toBeDefined()
+    })
+
+    it('Should return a positive integer', () => {
+        expect( findLongestWordLength('hello goodbye')).toBeGreaterThan(0)
+    })
+
+    it('Should return length of longest word', () => {
+        var longest = 'Deutschland'
+        var length = longest.length
+        expect( findLongestWordLength(`${longest} word here`)).toBe(length)
+    })
+
+    it('Should ignore periods as characters', () => {
+        var withPeriod = 'Deutschland.'
+        var lengthWithoutPeriod = withPeriod.length -1
+        expect (findLongestWordLength(`${withPeriod} is home`)).toBe(lengthWithoutPeriod)
+    })
+
+    it('Should ignore consecutive periods', () => {
+        expect(  findLongestWordLength("Worrysome.. Sentence is here to test.") ).toBe(9)
     })
 })
