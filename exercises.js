@@ -143,11 +143,6 @@ function sumAll(arr) {
         .toLowerCase()
       }
     
-      //Test Cases:
-      spinalCase("This Is Spinal Tap")
-      spinalCase("thisIsSpinalTap")
-      spinalCase("The_Andy_Griffith_Show")
-
  //-------------------------//
 
 
@@ -470,6 +465,7 @@ function palindrome(str) {
       destroyer,
       sortOut,
       diffArray,
-      sumAll
+      sumAll,
+      spinalCase
   }
   //-------------------------//

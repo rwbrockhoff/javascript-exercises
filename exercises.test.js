@@ -1,5 +1,5 @@
 
-const {destroyer, sortOut, diffArray, sumAll} = require('./exercises')
+const {destroyer, sortOut, diffArray, sumAll, spinalCase} = require('./exercises')
 
 describe('Destroyer Function', () => {
 
@@ -74,7 +74,28 @@ describe('sumAll Function', () => {
     it('Should return correct sum', () => {
         expect ( sumAll([10, 123]) ).toBe(7581)
     })
+})
 
+describe('spinalCase Function', () => {
+    var resolution = 'this-is-spinal-tap'
     
+    it('Should be defined', () => {
+        expect(spinalCase).toBeDefined()
+    })
 
+    it('Should return a string', () => {
+        expect( typeof spinalCase('Wisconsin in the Winter')).toBe('string')
+    })
+
+    it('Should return spinal case when given spaces', () => {
+        expect( spinalCase('This is Spinal Tap')).toBe(resolution)
+    })
+
+    it('Should return spinal case when given camel case', () => {
+        expect( spinalCase('thisIsSpinalTap')).toBe(resolution)
+    })
+
+    it('Shoudl return spinal case when given underscores', () => {
+        expect( spinalCase('This_Is_Spinal_Tap')).toBe(resolution)
+    })
 })
