@@ -342,7 +342,7 @@ function findLongestWordLength(str) {
   uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8])
   //Should return:  [1, 2, 3, 5, 4, 6, 7, 8]
 
-
+//-------------------------//
 
   //Sum Fibonacci Sequence 
 
@@ -401,10 +401,75 @@ function findLongestWordLength(str) {
   sumFibs(75025)
   //Should return 135721
 
+//-------------------------//
 
+  //Sum Primes Function
+
+  //Prime is a number only divisible by 1 & itself: 2, 3, 5, 7
+
+  //INPUT: A max value, positive integer. Example: 10
+  //OUTPUT: A sum of all prime numbers up to (and including) the max value (argument). Example: 28
+
+
+  function sumPrimes(num) {
+    //2 is first prime number. First number given will at least include this prime number. Condition can be written to account for INPUT: 1 if need be. 
+    var currentValue = 2
+    var primeArray = []
+    var notPrimeArray = []
+
+    //Iterate through every number from 2 to max value (num)
+    while(currentValue <= num){
+        //We do not care if it can divide by 1, or itself. So we write our for loop starting at 2 and ending 1 less than the currentValue. Otherwise we are performing extra iterations for no reason.
+
+        for(let i = 2; i < currentValue; i++){
+            if(currentValue%i===0){
+        //If at any point the remainder is zero, push into notPrimeArray
+                notPrimeArray.push(currentValue)
+            }
+        }
+
+        //Outside of for loop, if the notPrimeArray is empty, we know that the currentValue is prime. So we push it into our prime array.
+        if(notPrimeArray.length === 0){
+            primeArray.push(currentValue)
+        }
+
+        //Increase current value and reset notPrimeArray to empty for next iteration.
+        currentValue++    
+        notPrimeArray.length=0
+    }
+        //Simple reduce function to get our sum from the final array
+    return primeArray.reduce((a,b) => {
+        return a+b
+    })
+  }
+
+//-------------------------//
+
+//Palindrome Checker
+
+//INPUT: Given a string which could have lower/uppercase letters or special characters: (), whitespace, comma, period or '-'. Example: "Rac_ecar"
+//OUTPUT: True or false boolean value. 
+
+function palindrome(str) {
+    //Removing ( with .replace() ) all accounted special characters with regular expression before making string all lowercase and assigning to variable.
+    var filterString = str.replace(/[\()\s_,.-]/g, "").toLowerCase()
+
+    //Compare string to itself split into an array, reversed and joined back together to verify if palindrome. Returns boolean based on comparison.
+    
+    return filterString === filterString.split("").reverse().join("") ? true : false
+   }
+   
+   console.log(
+     palindrome("0_0 (: /-\ :) 0-0")
+   )
+
+
+
+//-------------------------//
   module.exports = {
       destroyer,
       sortOut,
       diffArray,
       sumAll
   }
+  //-------------------------//
