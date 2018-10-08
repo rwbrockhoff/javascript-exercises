@@ -1,5 +1,5 @@
 
-const {destroyer, sortOut, diffArray, sumAll, spinalCase, findLongestWordLength} = require('./exercises')
+const {destroyer, sortOut, diffArray, sumAll, spinalCase, findLongestWordLength, myReplace} = require('./exercises')
 
 describe('Destroyer Function', () => {
 
@@ -123,5 +123,31 @@ describe('findLongestWordLength Function', () => {
 
     it('Should ignore consecutive periods', () => {
         expect(  findLongestWordLength("Worrysome.. Sentence is here to test.") ).toBe(9)
+    })
+})
+
+describe('myReplace function', () => {
+    var sampleString = 'Hi Sandra. How are you doing?'
+    var initialName = 'Sandra'
+    var resolvedName = 'Thomas'
+
+    it('Should be defined', () => {
+        expect(myReplace).toBeDefined()
+    })
+
+    it('Should return a string', () => {
+        expect(typeof myReplace(sampleString, initialName, resolvedName)).toBe('string')
+    })
+
+    it('Should return a string containing new input', () => {
+        expect( myReplace(sampleString, initialName, resolvedName)).toContain(resolvedName)
+    })
+
+    it('Should replace initialValue with resolvedValue with same lower/upper case as initialValue', () => {
+        expect( myReplace("He is Sleeping on the couch", "Sleeping", "sitting") ).toContain('Sitting')
+    })
+
+    it('Should replace with lower case character', () => {
+        expect( myReplace("He is sleeping on the couch", "sleeping", "sitting") ).toContain('sitting')
     })
 })
