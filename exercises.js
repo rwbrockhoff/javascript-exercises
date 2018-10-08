@@ -321,8 +321,8 @@ function findLongestWordLength(str) {
     for(let i =0; i < args; i++){
         concatArray = concatArray.concat(arguments[i])
     }
-    //filter unique values and push them into finalArray
-    concatArray.filter((e => {
+    //map over values and push unique values into finalArray
+    concatArray.map((e => {
         finalArray.indexOf(e) > -1 ? '' : finalArray.push(e)
     }))
 
@@ -470,7 +470,8 @@ function palindrome(str) {
       findLongestWordLength,
       myReplace,
       pairElement,
-      fearNotLetter
+      fearNotLetter,
+      uniteUnique
 
   }
   //-------------------------//

@@ -1,5 +1,5 @@
 
-const {destroyer, sortOut, diffArray, sumAll, spinalCase, findLongestWordLength, myReplace, pairElement, fearNotLetter} = require('./exercises')
+const {destroyer, sortOut, diffArray, sumAll, spinalCase, findLongestWordLength, myReplace, pairElement, fearNotLetter, uniteUnique} = require('./exercises')
 
 describe('Destroyer Function', () => {
 
@@ -222,5 +222,44 @@ describe('fearNotLetter function', () => {
 
     it('Should work at any place in the alphabet', () => {
         expect( fearNotLetter("stvwx") ).toBe('u')
+    })
+})
+
+describe('uniteUnique Function', () => {
+    var testArray = [1, 45, 10, 4, 18]
+    var testArray2 = [24, 24, 10, 3]
+    var length = () => {
+        return testArray.length > testArray2.length ? testArray.length: testArray2.length
+    }
+    it('Should be defined', () => {
+        expect(uniteUnique).toBeDefined()
+    })
+
+    it('Should return an array', () => {
+        expect( Array.isArray( uniteUnique(testArray, testArray2) ) ).toBeTruthy()
+    })
+
+    it('Should return an array no greater than given argument length', () => {
+        expect( uniteUnique(testArray, testArray2).length ).toBeGreaterThanOrEqual(length())
+    })
+
+    it('Should return unique array when provied 3 arguments', () => {
+        expect( uniteUnique([1, 2, 2, 3], [1, 4, 4, 5], [1, 1, 6, 7])).toEqual([1, 2, 3, 4, 5, 6, 7])
+    })
+
+    it('Should only contain unique values', () => {
+        var array = uniteUnique(testArray, testArray2)
+        var uniqueIntegers = []
+
+        array.map(e => {
+            if(uniqueIntegers.indexOf(e)===-1){
+                uniqueIntegers.push(e)
+            }
+        })
+        expect(array.length).toBe(uniqueIntegers.length)
+    })
+
+    it('Should return correct array given 4 arguments', () => {
+        expect( uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]) ).toEqual([1, 2, 3, 5, 4, 6, 7, 8])
     })
 })
