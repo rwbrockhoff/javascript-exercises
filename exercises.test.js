@@ -1,5 +1,5 @@
 
-const {destroyer, sortOut, diffArray, sumAll, spinalCase, findLongestWordLength, myReplace, pairElement} = require('./exercises')
+const {destroyer, sortOut, diffArray, sumAll, spinalCase, findLongestWordLength, myReplace, pairElement, fearNotLetter} = require('./exercises')
 
 describe('Destroyer Function', () => {
 
@@ -191,5 +191,36 @@ describe('pairElement function', () => {
 
     it('Should resolve array with correct DNA pairs', () => {
         expect( pairElement('aG')).toEqual([['A', 'T'], ['G', 'C']])
+    })
+})
+
+describe('fearNotLetter function', () => {
+
+    it('Should be defined', () => {
+        expect(fearNotLetter).toBeDefined()
+    })
+
+    it('Should return a string', () => {
+        expect(typeof fearNotLetter('abde')).toBe('string')
+    })
+
+    it('Should return a string with length of 1', () => {
+        expect( fearNotLetter('abde').length ).toBe(1)
+    })
+
+    it('Should return the missing letter in the alphabet', () => {
+        expect( fearNotLetter('abcef')).toBe('d')
+    })
+
+    it('Should be undefined if no missing letter', () => {
+        expect( fearNotLetter('mnopqrst')).toBeUndefined()
+    })
+
+    it('Should work with capital letters', () => {
+        expect ( fearNotLetter('FGHJK') ).toBe('i')
+    })
+
+    it('Should work at any place in the alphabet', () => {
+        expect( fearNotLetter("stvwx") ).toBe('u')
     })
 })

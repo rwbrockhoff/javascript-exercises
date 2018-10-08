@@ -273,13 +273,13 @@ function findLongestWordLength(str) {
     //Create array from string arguement
     //Create array for alphabet
 
-    var stringArray = str.split('')
+    var stringArray = str.toLowerCase().split('')
     var alphabet = "abcdefghijklmnopqrstuvwxyz".split("")
     
     //find and return index in alphabet where the stringArray starts
     
     var startIndex = alphabet.findIndex(((e => {
-        return e === str.charAt(0)
+        return e === str.toLowerCase().charAt(0)
     })))
 
     //iterate through the stringArray comparing its value at given index compared to alphabet at the startIndex
@@ -469,6 +469,8 @@ function palindrome(str) {
       spinalCase,
       findLongestWordLength,
       myReplace,
-      pairElement
+      pairElement,
+      fearNotLetter
+
   }
   //-------------------------//
