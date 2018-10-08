@@ -348,38 +348,56 @@ function findLongestWordLength(str) {
   //Sum Fibonacci Sequence 
 
   function sumFibs(num) {
-    //given positive integer.
-    //use reduce method to get next # in sequence
-    
-    var fibArray = [1]
-    var currentIndex = 1
-    console.log(currentIndex, num)
-    
-    var fibArray = [1]
-    var nextValue = 1
-    var sumValue = 1
+    //Fibonacci sequence: Next value is sum of previous two integers
 
-    while(sumValue < num){
+    //INPUT: Given a positive integer. No strings or other values. 
+    //OUTPUT: Sum of all odd values in a Fibonacci sequence up to (and including) the
+    //argument integer and return that single integer.
+
+    var currentValue = 1
+    var finalArray = [1, 1]
+
+    //Starting with a [1,1] base because any given positive integer will at least be 1. 
+    //Less code to hard code a starting point that all values will meet the condition. 
+    //You could account for this with logic instead of hard coding a start value, though.
+
+    while(currentValue <= num){
+        //Iterate through while our latest Fibonacci number is <= given argument
+        //assign currentValue based on new array length. 
         
-        if(sumValue = 1){
-            fibArray.push(1)
-            console.log(1)
+        currentValue = finalArray[finalArray.length-1] + finalArray[finalArray.length-2]
+        if(currentValue <= num){
+            //If it is the same value or less than argument, we want to add to array.
+            finalArray.push(currentValue)
         }
-        if(sumValue > 1) {
-            fibArray.push(nextValue)
-            nextValue = fibArray[fibArray.length-1] + fibArray[fibArray.length-2]
-            console.log(2)
+        else {
+            //If not, we have an array with all the conditional values required.
+            //Instead of assigning to a variable, we can just return out the value here.
 
+            //Return will end the function returning a single sum integer
+           //Filter out even values
+           //Curry a reduce method to add all the odd values together
+           return finalArray
+           .filter(e => {
+               return e%2!==0
+            })
+            .reduce((a,b) => {
+                return a+b
+            }) 
         }
-        sumValue += nextValue
     }
-
- 
     
-   
-    return num
   }
-  
-  console.log(
-  sumFibs(10)
-  )
+
+  //Test Cases (provided):
+  sumFibs(1)
+   //Should return a number
+
+  sumFibs(4)
+  //Should return 5
+
+  sumFibs(75024)
+  //Should return 60696
+
+  sumFibs(75025)
+  //Should return 135721
