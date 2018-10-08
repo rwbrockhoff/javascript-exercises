@@ -1,0 +1,23 @@
+{
+  "name": "javascript-exercises",
+  "version": "1.0.0",
+  "description": "Javascript Exercise Problems",
+  "main": "exercises.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rwbrockhoff/javascript-exercises.git"
+  },
+  "author": "Ryan Brockhoff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rwbrockhoff/javascript-exercises/issues"
+  },
+  "homepage": "https://github.com/rwbrockhoff/javascript-exercises#readme",
+  "dependencies": {
+    "babel-jest": "^23.6.0",
+    "jest": "^23.6.0"
+  }
+}

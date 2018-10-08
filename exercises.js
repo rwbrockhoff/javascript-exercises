@@ -19,7 +19,7 @@ function destroyer(arr) {
     return arr;
   }
 
-destroyer(newArr)
+// destroyer(newArr)
 
 //-------------------------//
 
@@ -87,7 +87,6 @@ function diffArray(arr1, arr2) {
 
     arr1.forEach(e => {
         if (arr2.indexOf(e) === -1){
-            console.log(e)
             newArr.push(e)
         }
     })
@@ -401,3 +400,6 @@ function findLongestWordLength(str) {
 
   sumFibs(75025)
   //Should return 135721
+
+
+  module.exports = destroyer
