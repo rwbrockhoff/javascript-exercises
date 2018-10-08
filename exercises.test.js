@@ -1,5 +1,5 @@
 
-const {destroyer, sortOut, diffArray, sumAll, spinalCase, findLongestWordLength, myReplace} = require('./exercises')
+const {destroyer, sortOut, diffArray, sumAll, spinalCase, findLongestWordLength, myReplace, pairElement} = require('./exercises')
 
 describe('Destroyer Function', () => {
 
@@ -149,5 +149,47 @@ describe('myReplace function', () => {
 
     it('Should replace with lower case character', () => {
         expect( myReplace("He is sleeping on the couch", "sleeping", "sitting") ).toContain('sitting')
+    })
+})
+
+describe('pairElement function', () => {
+    it('Should be defined', () => {
+        expect(pairElement).toBeDefined()
+    })
+
+    it('Should resolve to array', () => {
+        expect(typeof pairElement('ATCG')).toBe('object')
+    })
+
+    it('Should resolve to an array with same length as string', () => {
+        expect( pairElement('ATCG').length ).toBe(4)
+    })
+
+    it('Should return AT for A input', () => {
+        expect( pairElement('ATCG')[0] ).toEqual(['A', 'T'])
+    })
+
+    it('Should return TA for T input', () => {
+        expect ( pairElement('ATCG')[1]).toEqual(['T', 'A'])
+    })
+
+    it('Should return CG for C input', () => {
+        expect( pairElement('ATCG')[2]).toEqual(['C', 'G'])
+    })
+
+    it('Should return GC for G input', () => {
+        expect( pairElement('ATCG')[3]).toEqual(['G', 'C'])
+    })
+
+    it('Should resolve with lowercase characters', ()=> {
+        expect( pairElement('aaaa')).toBeTruthy()
+    })
+
+    it('Should resolve array with lowercase character input', () => {
+        expect( typeof pairElement('aaaa')).toBe('object')
+    })
+
+    it('Should resolve array with correct DNA pairs', () => {
+        expect( pairElement('aG')).toEqual([['A', 'T'], ['G', 'C']])
     })
 })
