@@ -460,6 +460,53 @@ function palindrome(str) {
 
 
 
+
+   function binarySearch(array, item){
+    //Sort faster than linear time complexity. Achieve n logn time complexity by reducing our search by log2 each iteration. 
+
+    //Set max to the array length (accounting for 0 index)
+    //Set min for the first item in the array
+
+    var max = array.length -1
+    var min = 0
+    var guess
+
+    while(min <= max){
+        //Guess is reassigned a value every iteration, which is why we need it inside our while loop
+
+        //Guess is the amount of items in the array divided by two. We're splitting like we do in a binary search to reduce our time complexity. 
+
+        //Every iteration, if not found, we move our guess to reflect the side of the array that will hold the value. This function assumes that our input array is already sorted. 
+
+        guess = Math.floor( ( max + min ) / 2)
+
+        if(array[guess]===item){
+            //If we found it, return it. We always check for this first.
+            return guess
+        }
+        else {
+                //is our Guess less than the item?
+                //10 < 15 = true
+            if(array[guess] < item){
+                //if so, our new minimum boundary can be our guess + 1 (because our guess didn't hit as === in our first if condition). Now we are sorting from that new boundary (11) and up to the max (unchanged).
+                min = guess + 1
+            }
+
+                //is our Guess greater than the item?
+                // 5 > 2 = true
+            else {
+                //if so, our new max boundary can be our guess -1. Same reasoning as above for the + 1. Now we are sorting from our min (unchanged) to our maximum (4)
+                max = guess -1
+            }
+        }
+       
+    }
+    //If no condition is met, number is not found in the array. 
+    return "Not Found"
+}
+
+
+
 //-------------------------//
   module.exports = {
       destroyer,
