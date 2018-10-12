@@ -1,5 +1,4 @@
-
-const {destroyer, sortOut, diffArray, sumAll, spinalCase, findLongestWordLength, myReplace, pairElement, fearNotLetter, uniteUnique} = require('./exercises')
+const {destroyer, sortOut, diffArray, sumAll, spinalCase, findLongestWordLength, myReplace, pairElement, fearNotLetter, uniteUnique, sumFibs } = require('./exercises')
 
 describe('Destroyer Function', () => {
 
@@ -263,3 +262,11 @@ describe('uniteUnique Function', () => {
         expect( uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]) ).toEqual([1, 2, 3, 5, 4, 6, 7, 8])
     })
 })
+
+describe('sumFibs Function', () => {
+    it('Should be defined', () => {
+        expect(sumFibs).toBeDefined()
+    })
+})
+
+

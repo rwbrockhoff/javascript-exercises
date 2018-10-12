@@ -471,7 +471,8 @@ function palindrome(str) {
       myReplace,
       pairElement,
       fearNotLetter,
-      uniteUnique
+      uniteUnique, 
+      sumFibs
 
   }
   //-------------------------//
