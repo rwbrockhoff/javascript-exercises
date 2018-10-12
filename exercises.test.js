@@ -264,9 +264,20 @@ describe('uniteUnique Function', () => {
 })
 
 describe('sumFibs Function', () => {
+    let randomInteger = Math.floor( Math.random() * 100 )
+
     it('Should be defined', () => {
         expect(sumFibs).toBeDefined()
     })
+
+    it('Should return a number', () => {
+        expect(typeof sumFibs(randomInteger)).toBe('number')
+    })
+
+    it('Should return a positive value', () => {
+        expect(sumFibs(randomInteger)).toBeGreaterThan(1)
+    })
+
 })
 
 
