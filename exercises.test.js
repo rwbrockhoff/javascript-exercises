@@ -278,6 +278,18 @@ describe('sumFibs Function', () => {
         expect(sumFibs(randomInteger)).toBeGreaterThan(1)
     })
 
+    it('Should return correct sum for given Fibonnaci sequence limit', () => {
+        expect(sumFibs(4)).toEqual(5)
+    })
+
+    it('Should return correct sum for two digit limit', () => {
+        expect(sumFibs(75024)).toEqual(60696)
+    })
+
+    it('Should work for edge case, by returning value when equal to conditional case', () => {
+        expect(sumFibs(75025)).toEqual(135721)
+    })
+
 })
 
 
