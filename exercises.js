@@ -416,6 +416,8 @@ function findLongestWordLength(str) {
     while(currentValue <= num){
         //We do not care if it can divide by 1, or itself. So we write our for loop starting at 2 and ending 1 less than the currentValue. Otherwise we are performing extra iterations for no reason.
 
+        //Double loop is getting into some time complexity I'd rather avoid. I'll come back and look at optimizing this approach when I can. 
+
         for(let i = 2; i < currentValue; i++){
             if(currentValue%i===0){
         //If at any point the remainder is zero, push into notPrimeArray
@@ -519,7 +521,8 @@ function palindrome(str) {
       pairElement,
       fearNotLetter,
       uniteUnique, 
-      sumFibs
+      sumFibs, 
+      sumPrimes
 
   }
   //-------------------------//

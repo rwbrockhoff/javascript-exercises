@@ -1,4 +1,4 @@
-const {destroyer, sortOut, diffArray, sumAll, spinalCase, findLongestWordLength, myReplace, pairElement, fearNotLetter, uniteUnique, sumFibs } = require('./exercises')
+const {destroyer, sortOut, diffArray, sumAll, spinalCase, findLongestWordLength, myReplace, pairElement, fearNotLetter, uniteUnique, sumFibs, sumPrimes } = require('./exercises')
 
 describe('Destroyer Function', () => {
 
@@ -288,6 +288,23 @@ describe('sumFibs Function', () => {
 
     it('Should work for edge case, by returning value when equal to conditional case', () => {
         expect(sumFibs(75025)).toEqual(135721)
+    })
+
+})
+
+describe('sumPrimes function', () => {
+    let randomInteger = Math.floor( Math.random() * 100 )
+
+    it('Should be defined', () => {
+        expect(sumPrimes).toBeDefined()
+    })
+
+    it('Should return a number', () => {
+        expect(typeof sumPrimes(randomInteger)).toBe('number')
+    })
+
+    it('Should return a positive value', () => {
+        expect(sumPrimes(randomInteger)).toBeGreaterThan(0)
     })
 
 })
