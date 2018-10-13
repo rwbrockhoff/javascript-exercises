@@ -1,5 +1,7 @@
 const {destroyer, sortOut, diffArray, sumAll, spinalCase, findLongestWordLength, myReplace, pairElement, fearNotLetter, uniteUnique, sumFibs, sumPrimes } = require('./exercises')
 
+//I wrote out one assertion for every test I was running. But it's worth noting that I could have listed all assertions per function within 1 describe(). I did this to be more descriptive for those looking at this repo to see what I was testing just by running npm test.
+
 describe('Destroyer Function', () => {
 
     it('Should be defined', () => {
