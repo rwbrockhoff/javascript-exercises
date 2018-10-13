@@ -251,7 +251,8 @@ describe('uniteUnique Function', () => {
     it('Should only contain unique values', () => {
         var array = uniteUnique(testArray, testArray2)
         var uniqueIntegers = []
-
+        //Normally you would want to keep your logic in your testing to a minimal. I plan on coming back and adjusting this test to avoid errors within a map() function so that a team working with my tests wouldn't have to search for additional logic that could be bugged. 
+        
         array.map(e => {
             if(uniqueIntegers.indexOf(e)===-1){
                 uniqueIntegers.push(e)
