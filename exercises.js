@@ -523,6 +523,5 @@ function palindrome(str) {
       uniteUnique, 
       sumFibs, 
       sumPrimes
-
   }
   //-------------------------//

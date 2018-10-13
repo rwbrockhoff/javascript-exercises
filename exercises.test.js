@@ -307,6 +307,14 @@ describe('sumPrimes function', () => {
         expect(sumPrimes(randomInteger)).toBeGreaterThan(0)
     })
 
+    it('Should return expected value', () => {
+        expect(sumPrimes(5)).toEqual(10)
+    })
+
+    it('Should return expected value with multiple digits', () => {
+        expect(sumPrimes(20)).toEqual(77)
+    })
+
 })
 
 
