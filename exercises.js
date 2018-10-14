@@ -507,6 +507,29 @@ function palindrome(str) {
     return "Not Found"
 }
 
+//Drop Elements Function 
+
+//INPUT: Array with positive integers unsorted and a callback function. 
+//OUTPUT: Return an array with all values after the callback function returns true. 
+
+//Example: [1, 2, 3], function(n){return n > 1} would return [2, 3] when it hits true for the 1st element in the array (2). 
+
+function dropElements(arr, func) {
+    var array = []
+    
+    arr.forEach((e,i) => {
+        //Iterate through array, if true, we will splice it at that index and assign that array to our function scoped array and return said array. 
+        
+        if(func(e) === true){
+           array = arr.splice(i)
+        }
+    })
+    
+    return array
+  }
+
+//-------------------------//
+
 
 
 //-------------------------//
