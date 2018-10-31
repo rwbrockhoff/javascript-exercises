@@ -124,3 +124,34 @@ function stitch(left, right){
 console.log(
     mergeSort(array)
 )
+
+
+var array1 = [1, 3, 5]
+var array2 = [2, 4, 6, 7]
+
+// [1, 2, 3, 4, 5, 6, 7]
+
+
+//Find Median in 2 Sorted Arrays
+
+function merge(left, right){
+    const results = []
+    const median = Math.floor( (left.length + right.length) / 2)
+    
+    while(results.length < median){
+        
+        if(array1[0] < array2[0]){
+            results.push( array1.shift() )
+        } 
+        else {
+            results.push( array2.shift() )
+        }
+    }
+    
+    return results.unshift()
+}
+
+
+console.log(
+    merge(array1, array2)
+)
