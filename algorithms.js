@@ -120,10 +120,34 @@ function stitch(left, right){
     return results.concat(left, right)
 }
 
+//===============================//
 
-console.log(
-    mergeSort(array)
-)
+//Quick Sort
+
+function quickSort(arr){
+
+    if(arr.length <= 1) return arr
+
+    var pivot = arr[arr.length-1]
+    var left = []
+    var right = []
+
+    for(let i = 0; i < arr.length-1; i++){
+        if(arr[i] < pivot){
+            left.push(arr[i])
+        }
+        else {
+            right.push(arr[i])
+        }     
+    }
+
+    var leftSort = quickSort(left)
+    var rightSort = quickSort(right)
+    
+    return leftSort.concat(pivot, rightSort)
+}
+
+//=======================//
 
 
 var array1 = [1, 3, 5]
