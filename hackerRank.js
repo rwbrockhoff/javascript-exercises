@@ -1,5 +1,5 @@
 
-function diag(n){
+function diagonal(n){
     let ans = []
     for(let i = 0; i < n; i++){
         
@@ -45,7 +45,7 @@ var megga = [
 ]
 
 
-function somehow(array){
+function hourglass(array){
     var arr = array.slice()
     var len = arr.length/2
    
@@ -69,3 +69,35 @@ function somehow(array){
     return greatestSum.value
 }
 
+
+
+
+function dynamicArray(n, queries) {
+    var seqList = new Array(n)
+    var lastAnswer = 0
+    var N = n
+    for(let i = 0; i < seqList.length; i++){
+        seqList[i] = []
+    }
+
+    return queries.map(e => {
+        let index = (e[1] ^ lastAnswer) % N
+
+        if(e[0]===1){
+           seqList[index].push(e[2])
+        }
+
+        else if(e[0]===2){  
+           
+            let innerArr = seqList[index]
+            let innerIndex = e[2] % innerArr.length
+
+            lastAnswer = innerArr[innerIndex]
+            return lastAnswer
+        }
+
+        
+    }).filter(e => {
+        return e
+    })
+}
