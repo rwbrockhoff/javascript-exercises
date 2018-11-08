@@ -142,3 +142,36 @@ function movieLine(q){
     return total
     
 }
+
+
+
+function stringCompare(a, b){
+    var shortArr;
+    var longArr;
+    var sharedCount = 0
+
+    if(a.length >= b.length){
+        //a is greater
+        longArr = a.split('')
+        shortArr = b.split('')
+    }
+    else {
+        longArr = b.split('')
+        shortArr = a.split('')
+    }
+
+    for(let i = 0; i < longArr.length; i++){
+
+            if( shortArr.indexOf(longArr[i]) >= 0 ){
+                let index = shortArr.indexOf(longArr[i])
+                shortArr.splice(index, 1)
+
+                sharedCount++
+                
+            }
+
+    }
+    
+        return (a.length - sharedCount) + (b.length - sharedCount)
+
+}
