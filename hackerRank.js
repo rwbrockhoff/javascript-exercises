@@ -101,3 +101,44 @@ function dynamicArray(n, queries) {
         return e
     })
 }
+
+
+
+//Given a line of 1 index based "people", each person can bribe the person in front of them to move 2 positions. Check to see how many bribes have been made or "people" who have changed positions. If a person moves more than 2 times, return the string "too chaotic".
+
+
+function movieLine(q){
+    
+    var swapped = true
+    var count = {}
+    var total = 0
+
+    while(swapped){
+        swapped = false
+
+        for(let i = 0; i < q.length; i++){
+            
+            if(q[i] > q[i+1]){
+                let greater = q[i]
+                q[i] = q[i+1]
+                q[i+1] = greater
+
+                swapped = true
+                if( count[q[i+1]] ) count[q[i+1]] += 1
+                else {
+                    count[q[i+1]] = 1
+                }
+
+                if(count[q[i+1]] > 2) return "Too chaotic"
+            }
+
+        }
+
+    }
+    for(var key in count){
+        total += count[key]
+    }
+    
+    return total
+    
+}
