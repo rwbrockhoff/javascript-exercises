@@ -207,3 +207,33 @@ function alterLetter(s){
     return 'YES'
 
 }
+
+
+//Use a map to more efficiently compare large inputs. If both strings share a substring, even just one character, return 'YES' otherwise return 'NO'
+
+function twoStrings(s1, s2){
+    var letterMap = new Map()
+    var longer
+    var shorter
+
+    if(s1.length > s2.length){
+        longer = s1.split('')
+        shorter = s2.split('')
+    }
+    else {
+        longer = s2.split('')
+        shorter = s1.split('')
+    }
+
+    longer.forEach(e => {
+        if(!letterMap.get(e)){
+            letterMap.set(e, e)
+        }   
+    })
+
+    for(let i = 0; i < shorter.length; i++){
+        if( letterMap.get(shorter[i])  ) return 'YES'
+    }
+
+    return 'NO'
+}
