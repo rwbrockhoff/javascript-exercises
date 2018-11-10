@@ -175,3 +175,35 @@ function stringCompare(a, b){
         return (a.length - sharedCount) + (b.length - sharedCount)
 
 }
+
+
+//Letters in a given string must all appear the same number of times. If one letter can be deleted to maintain equal count--it is acceptable. But it cannot require more than 1 letter deletion from string. Return YES if valid, NO if invalid. 
+
+function alterLetter(s){
+    var strArray = s.split('')
+    var sObj = {}
+    
+    for(let i = 0; i < s.length; i++){
+        
+        if(!sObj[ strArray[i] ] ) sObj[ strArray[i] ] = 1
+        else sObj[ strArray[i] ] += 1
+    }
+
+    var count = 0
+    var value = 0
+
+    for(var key in sObj){
+       
+        if(!value){
+            value = sObj[key]
+        }
+
+        if(value !== sObj[key]){
+            count++
+            if(count > 1) return 'NO'
+        }
+    }
+    
+    return 'YES'
+
+}
