@@ -237,3 +237,41 @@ function twoStrings(s1, s2){
 
     return 'NO'
 }
+
+
+//Ransom Note. If every word in note appears exactly, case sensitive, in magazine, return 'Yes', otherwise 'No' Use map.
+
+var mag = [ 'give', 'me', 'me','one', 'grand', 'today', 'night' ] 
+var no = [ 'give', 'one', 'grand', 'today' ]
+
+function ransomNote(magazine, note){
+    var store = new Map()
+
+    mag.forEach(e => {
+        if(!store.has(e)){
+            store.set(e, 1)
+        }
+        else {
+            let newValue = store.get(e) + 1
+            store.set(e, newValue)
+        }
+        
+    })
+    
+    for(let i = 0; i < note.length; i++){
+        if(!store.has(note[i])){
+            return 'No'
+        }
+        else {
+            if(store.get(note[i]) > 1){
+                let newValue = store.get(note[i]) - 1
+                store.set(note[i], newValue)
+            }
+            else {
+                store.delete(note[i])
+            }
+        }
+    }
+
+    return 'Yes'
+}
