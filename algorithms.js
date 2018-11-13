@@ -176,6 +176,3 @@ function merge(left, right){
 }
 
 
-console.log(
-    merge(array1, array2)
-)

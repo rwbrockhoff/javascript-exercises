@@ -275,3 +275,48 @@ function ransomNote(magazine, note){
 
     return 'Yes'
 }
+
+
+//Find Max amount of toys that can be purchased given an array of toy prices (unsorted) and a max budget (integer). 
+
+function maxToys(prices, k){
+    var totalSpend = k
+    var items = quickSort(prices)
+    var count = 0
+
+        for(let i = 0; i < items.length; i++){
+            if( (totalSpend - items[i] ) >= 0){
+                totalSpend -= items[i]
+                count++
+            }
+            else {
+                return count
+            }
+        }
+    
+    return count
+
+}
+
+function quickSort(arr){
+    if(arr.length <= 1) return arr
+
+    var pivot = arr[arr.length-1]
+    var left = []
+    var right = []
+
+    for(let i = 0; i < arr.length-1; i++){
+        if(arr[i] < pivot){
+            left.push(arr[i])
+        }
+        else {
+            right.push(arr[i])
+        }
+    }
+
+    var leftSort = quickSort(left)
+    var rightSort = quickSort(right)
+
+    return leftSort.concat(pivot, rightSort)
+    
+}
