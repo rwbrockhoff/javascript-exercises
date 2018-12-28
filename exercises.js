@@ -547,8 +547,26 @@ function dropElements(arr, func) {
 }
   //------Sliding Window-----//
 
-  
+  //Non-naive solution for finding indices where sum === target
+  var twoSum = function(nums, target) {
+    let store = {}
 
+    //O(n)
+    for(let i = 0; i < nums.length; i++){
+        let c = nums[i]
+        if(!store[c]) store[c] = i 
+    }
+    //O(n)
+    for(let i = 0; i < nums.length; i++){
+        let remainder = target - nums[i]
+        if(store[remainder] && store[remainder] !== i){
+            return [i, store[remainder]]
+        }
+    }  
+    return 'No solution found'
+};
+
+//O(2n) => O(n) amortized
 
 //-------------------------//
 
