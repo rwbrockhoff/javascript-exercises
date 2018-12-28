@@ -528,6 +528,28 @@ function dropElements(arr, func) {
     return array
   }
 
+  //------Sliding Window-----//
+  function maxSum(arr, n){
+    let maxSum = 0;
+    let tempSum = 0;
+    if(arr.length < n) return "Array length is insufficient"
+    for(let i = 0; i < n; i++){
+        maxSum += arr[i]
+    }
+    tempSum = maxSum
+    for(let j = n; j <= arr.length - n + 1; j++){
+        tempSum = tempSum + arr[j] - arr[j-n]
+        if(tempSum > maxSum){
+            maxSum = tempSum
+        }
+    }
+    return maxSum
+}
+  //------Sliding Window-----//
+
+  
+
+
 //-------------------------//
 
 
